@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <style>
+   
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+    
+
+    th, td {
+        color: black;
+    }
+
+   
+    .centered-message {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       height: 100vh; 
+     }
+</style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark shadowme">
+    <div class="container-fluid">
+      <div>
+        <img src="http://images.restapi.co.za/pvt/Noroff-64.png" alt="" class="navbar-brand" id="spritespin">
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+  <div class="container-fluid">
+<!--Checking if product is not found then show proper message else display product data-->
+<% if (!product) { %>
+  <div class="centered-message">
+    <h1>Product not found.</h1>
+  </div><% } else { %>
+  <h1>Products</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th colspan="2">Product Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="dark-gray">
+        <td class="white-bg">Product ID</td>
+        <td class="white-bg"><%= product.ProductID %></td>
+      </tr>
+      <tr>
+        <td class="white-bg">Product Name</td>
+        <td class="white-bg"><%= product.Name %></td>
+      </tr>
+      <tr>
+        <td class="white-bg">Color</td>
+        <td class="white-bg"><%= product.ProductNumber %></td>
+      </tr>
+      <tr>
+        <td class="white-bg">Size</td>
+        <td class="white-bg"><%= product.Size %></td>
+      </tr>
+      <tr>
+        <td class="white-bg">Weight</td>
+        <td class="white-bg"><%= product.Weight %></td>
+      </tr>
+      <tr>
+        <td class="white-bg">Standard Cost</td>
+        <td class="white-bg"><%= product.StandardCost %></td>
+      </tr>
+      <tr>
+        <td class="white-bg">List Price</td>
+        <td class="white-bg"><%= product.ListPrice %></td>
+      </tr>
+      <tr>
+        <td class="white-bg">Sell Start Date</td>
+        <td class="white-bg"><%= product.SellStartDate %></td>
+      </tr>
+      <!-- Add more rows as needed -->
+    </tbody>
+  </table>
+<% } %>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<style>
+     table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+    
+
+    th, td {
+        color: black;
+    }
+
+    .centered-message {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       height: 100vh; 
+     }
+</style>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark shadowme">
+    <div class="container-fluid">
+      <div>
+        <img src="http://images.restapi.co.za/pvt/Noroff-64.png" alt="" class="navbar-brand" id="spritespin">
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <div class="row py-3">
+      <!--Checking if there is no customer with this prefix then showing Customer not found message -->
+      <% if (customers.length==0) { %>
+        <div class="centered-message">
+          <h1>Customer not found.</h1>
+        </div><% } else { %>
+          <h1>Customers</h1>
+      <table>
+        <thead>
+          <tr>
+            <th colspan="9">Customers</th>
+          </tr>
+        </thead>
+        <tbody>
+      <tr class="dark-gray">
+        <td class="white-bg">Customer ID</td>
+        <td class="white-bg">Company Name</td>
+        <td class="white-bg">Title</td>
+        <td class="white-bg">First Name</td>
+        <td class="white-bg">Middle Name</td>
+        <td class="white-bg">Last Name</td>
+        <td class="white-bg">Email Address</td>
+        <td class="white-bg">Last Modified</td>
+        <td class="white-bg">Phone Number</td>
+
+    </tr>
+    <!--Displaying all the customers detail using loop-->
+    <% customers.forEach(customer => { %>
+      <tr class="dark-gray">
+          <td class="white-bg"><%= customer.CustomerID %></td>
+          <td class="white-bg"><%= customer.CompanyName %></td>
+          <td class="white-bg"><%= customer.Title %></td>
+          <td class="white-bg"><%= customer.FirstName %></td>
+          <td class="white-bg"><%= customer.MiddleName %></td>
+          <td class="white-bg"><%= customer.LastName %></td>
+          <td class="white-bg"><%= customer.EmailAddress %></td>
+          <td class="white-bg"><%= customer.ModifiedDate %></td>
+          <td class="white-bg"><%= customer.Phone %></td>
+
+      </tr>
+  <% }); %>
+  <% } %>
+
+  </tbody>
+</table>
+    </div>
+    <div class="panel shadowme">
+      <div class="panel-body">
+        <div class="panel d-flex align-items-center mt-0 ">
+          <div class="panel-heading">
+          </div>
+        </div>
+        <div class="card-text">
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="text-center text-lg-start text-light">
+    <section>
+      <div class="text-center p-3 fixed-bottom footer-background">
+        © 2023 Copyright:
+        <a class="text-reset fw-bold" href="https://noroff.no/"><img src="http://images.restapi.co.za/pvt/Noroff-64.png"
+            class="footer-brand"" alt=""></a>
+				Back-end Development
+			</div>
+	</footer>
+  </div>
+</body>
+</html>
